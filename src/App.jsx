@@ -1,8 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { quizzesListSelector, selectedQuiezzDataSelector } from './redux/quizzes.selectors';
-import { fetchSelectedQuizzData } from './redux/quizzes.actions';
+import * as selectors from './redux/quizzes.selectors';
+import {
+  fetchSelectedQuizzData,
+  setCurrentGameResult,
+  setStatisticData,
+} from './redux/quizzes.actions';
 
 import Header from './components/header/Header';
 import QuizzesList from './components/quizzesList/QuizzesList';
@@ -11,7 +15,15 @@ import QuizzesResult from './components/quizzesResult/QuizzesResult';
 import QuizzesStatistic from './components/quizzesStatistic/QuizzesStatistic';
 import Footer from './components/footer/Footer';
 
-function App({ quizzesList, fetchSelectedQuizzData, selectedQuiezzData }) {
+function App({
+  quizzesList,
+  fetchSelectedQuizzData,
+  selectedQuizzData,
+  currentGameResult,
+  setCurrentGameResult,
+  statisticData,
+  setStatisticData,
+}) {
   return (
     <>
       <Header />
@@ -26,9 +38,18 @@ function App({ quizzesList, fetchSelectedQuizzData, selectedQuiezzData }) {
               />
             }
           />
-          <Route path="/game" element={<QuizzesGame selectedQuiezzData={selectedQuiezzData} />} />
-          <Route path="/result" element={<QuizzesResult />} />
-          <Route path="/statistic" element={<QuizzesStatistic />} />
+          <Route
+            path="/game"
+            element={
+              <QuizzesGame
+                selectedQuizzData={selectedQuizzData}
+                setCurrentGameResult={setCurrentGameResult}
+                setStatisticData={setStatisticData}
+              />
+            }
+          />
+          <Route path="/result" element={<QuizzesResult currentGameResult={currentGameResult} />} />
+          <Route path="/statistic" element={<QuizzesStatistic statisticData={statisticData} />} />
           <Route path="*" element={<h1>Not found!</h1>} />
         </Routes>
       </main>
@@ -38,12 +59,16 @@ function App({ quizzesList, fetchSelectedQuizzData, selectedQuiezzData }) {
 }
 
 const mapState = state => ({
-  quizzesList: quizzesListSelector(state),
-  selectedQuiezzData: selectedQuiezzDataSelector(state),
+  quizzesList: selectors.quizzesListSelector(state),
+  selectedQuizzData: selectors.selectedQuizzDataSelector(state),
+  currentGameResult: selectors.currentGameResultSelector(state),
+  statisticData: selectors.statisticDataSelector(state),
 });
 
 const mapDispatch = {
   fetchSelectedQuizzData,
+  setCurrentGameResult,
+  setStatisticData,
 };
 
 export default connect(mapState, mapDispatch)(App);

@@ -6,6 +6,13 @@ import './quizzesList.scss';
 function QuizzesList({ quizzesList, fetchSelectedQuizzData }) {
   return (
     <section className="quizzes">
+      <Link
+        to="/game"
+        className="quizzes__lucky-btn"
+        onClick={() => fetchSelectedQuizzData(quizzesList[(Math.random() * 9).toFixed()].url)}
+      >
+        I'm lucky!
+      </Link>
       <ul className="quizzes__list">
         {quizzesList.map(({ id, title, img, url }) => (
           <li

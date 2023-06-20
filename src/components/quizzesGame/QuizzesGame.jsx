@@ -4,9 +4,10 @@ import moment from 'moment';
 
 import './quizzesGame.scss';
 
-function QuizzesGame({ selectedQuiezzData }) {
+function QuizzesGame({ selectedQuizzData, setCurrentGameResult, setStatisticData }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentGameDuration, setCurrentGameDuration] = useState('00:00');
+  const [currentGameScores, setCurrentGameScores] = useState([]);
 
   const navigator = useNavigate();
   const startTime = moment();
@@ -24,30 +25,54 @@ function QuizzesGame({ selectedQuiezzData }) {
     };
   }, []);
 
-  const selectedOptionChecker = selectedOption => {
-    const { correct_answer } = selectedQuiezzData[currentQuestionIndex];
-    console.log(correct_answer === selectedOption);
-    currentQuestionIndex < 9
-      ? setCurrentQuestionIndex(currentQuestionIndex + 1)
-      : navigator('/result');
+  const quizzHandle = selectedOption => {
+    const { correct_answer } = selectedQuizzData[currentQuestionIndex];
+    const newValues = [...currentGameScores, correct_answer === selectedOption];
+    setCurrentGameScores(newValues);
+    if (currentQuestionIndex < selectedQuizzData.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      const result = {
+        id: Math.random(),
+        category: selectedQuizzData[0].category,
+        time: currentGameDuration,
+        scores: `${newValues.filter(score => score === true).length}/${newValues.length}`,
+      };
+      setCurrentGameResult(result);
+      setStatisticData(result);
+      navigator('/result');
+    }
+  };
+
+  const textDecoder = () => {
+    const encodedText = selectedQuizzData[currentQuestionIndex].question;
+    const decodedText = document.createElement('textarea');
+    decodedText.innerHTML = encodedText;
+    const fixedText = decodedText.value;
+    return fixedText;
   };
 
   return (
-    selectedQuiezzData && (
+    selectedQuizzData && (
       <section className="quizz-game">
-        <span className="quizz-game__extra-info">{`№ ${currentQuestionIndex + 1}/10`}</span>
-        <span className="quizz-game__extra-info">{currentGameDuration}</span>
-        <h6 className="quizz-game__question">
-          {selectedQuiezzData[currentQuestionIndex].question}
-        </h6>
+        <h2 className="quizz-game__category">
+          Category: <span>{selectedQuizzData[0].category}</span>
+        </h2>
+        <p className="quizz-game__extra-info">
+          №: <span>{`${currentQuestionIndex + 1}/10`}</span>
+        </p>
+        <p className="quizz-game__extra-info">
+          Time: <span>{currentGameDuration}</span>
+        </p>
+        <h6 className="quizz-game__question">{textDecoder()}</h6>
         <div className="quizz-game__btn-wrapper">
           <button
             className="quizz-game__btn quizz-game__btn_true"
-            onClick={() => selectedOptionChecker('True')}
+            onClick={() => quizzHandle('True')}
           ></button>
           <button
             className="quizz-game__btn quizz-game__btn_false"
-            onClick={() => selectedOptionChecker('False')}
+            onClick={() => quizzHandle('False')}
           ></button>
         </div>
       </section>

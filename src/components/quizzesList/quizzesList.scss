@@ -1,5 +1,29 @@
 .quizzes {
-  padding: 50px;
+  width: 70%;
+  padding: 50px 0;
+  text-align: center;
+  margin: 0 auto;
+
+  &__lucky-btn {
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    border: 3px solid #f7768d;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f7768d, #df9c26);
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #740101;
+    padding-top: 9px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
   &__list {
     list-style: none;
@@ -50,7 +74,7 @@
     transition-duration: 0.3s;
 
     &:hover {
-        background-color: #f7768d;
+      background-color: #f7768d;
     }
   }
 }

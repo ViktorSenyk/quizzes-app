@@ -12,7 +12,9 @@
 - [Sass (Scss)](https://sass-lang.com/)
 - [BEM methodology](https://en.bem.info/methodology/)
 - [React](https://reactjs.org/)
+- [React Router](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
+- [Moment.js](https://redux.js.org/)
 
 ### Author
 
