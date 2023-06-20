@@ -3,7 +3,7 @@ import React from 'react';
 import './quizzesResult.scss';
 
 function QuizzesResult() {
-  return <></>;
+  return <>RESULT PAGE</>;
 }
 
 export default QuizzesResult;

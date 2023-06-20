@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 200px;
+  border-top: 15px solid;
+  border-image: linear-gradient(90deg, #f7768d, #df9c26);
+  border-image-slice: 1;
+  background-color: rgba(255, 255, 255, 0.096);
+  padding: 0 40px;
+
+  &__logo > a {
+    display: inline-block;
+    font-family: 'Cormorant', serif;
+    font-size: 60px;
+    font-style: italic;
+    transition-duration: 0.4s;
+
+    &:hover {
+      transform: scale(1.3);
+      color: #f7768d;
+    }
+  }
+}
+
+.navigation {
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+    font-size: 25px;
+    padding: 5px 30px;
+    transition-duration: 0.4s;
+
+    &:hover {
+      transform: scale(1.3);
+      & > a {
+        color: #f7768d;
+      }
+    }
+  }
+}
