@@ -12,6 +12,7 @@ function QuizzesGame({ selectedQuizzData, setCurrentGameResult, setStatisticData
   const navigator = useNavigate();
   const startTime = moment();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const timerId = setInterval(() => {
       const currentTime = moment();
