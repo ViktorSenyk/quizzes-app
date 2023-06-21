@@ -17,6 +17,9 @@ function Header() {
           <li className="navigation__item">
             <Link to="/statistic">Statistic</Link>
           </li>
+          <li className="navigation__item_mobile">
+            <Link to="/statistic">Statistic</Link>
+          </li>
         </ul>
       </nav>
     </header>
