@@ -1,12 +1,14 @@
+@import '../../scss/variables.scss';
+
 .footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 120px;
-  background-color: rgba(255, 255, 255, 0.096);
+  background-color: $header-footer-background;
   border-top: 15px solid;
-  border-image: linear-gradient(90deg, #f7768d, #df9c26);
+  border-image: linear-gradient(90deg, $first-gradient-color, $second-gradient-color);
   border-image-slice: 1;
 }
 
@@ -26,7 +28,7 @@
       transition-duration: 0.3s;
 
       &:hover {
-        filter: drop-shadow(0 0 0 #f7768d);;
+        filter: drop-shadow(0 0 0 $first-gradient-color);
         transform: scale(1.3);
       }
     }

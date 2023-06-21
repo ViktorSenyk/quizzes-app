@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .result {
   display: flex;
   flex-direction: column;
@@ -7,38 +9,38 @@
 
   &__btn-wrap {
     display: flex;
-
   }
+  
   &__btn {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 175px;
     height: 50px;
-    background-color: #f7768d;
+    background-color: $first-gradient-color;
     border-radius: 8px;
     font-size: 20px;
     margin: 25px;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 
     &:hover {
-        transform: scale(1.1);
+      transform: scale(1.1);
     }
   }
 
   & span {
-    color: rgb(253, 238, 209);
+    color: $main-text-color;
   }
 
   &__scores {
     font-size: 36px;
-    color: #f7768d;
+    color: $secondary-text-color;
     margin: 20px;
   }
 
   & p {
     font-size: 26px;
-    color: #f7768d;
+    color: $secondary-text-color;
     margin: 10px;
   }
 }

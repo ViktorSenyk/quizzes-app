@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .quizzes {
   width: 70%;
   padding: 50px 0;
@@ -8,9 +10,9 @@
     display: inline-block;
     width: 400px;
     height: 50px;
-    border: 3px solid #f7768d;
+    border: 3px solid $first-gradient-color;
     border-radius: 10px;
-    background: linear-gradient(90deg, #f7768d, #df9c26);
+    background: linear-gradient(90deg, $first-gradient-color, $second-gradient-color);
     font-size: 24px;
     font-weight: 900;
     letter-spacing: 1.5px;
@@ -39,7 +41,7 @@
   justify-content: flex-end;
   width: 250px;
   height: 300px;
-  border: 2px solid #f7768d;
+  border: 2px solid $first-gradient-color;
   border-radius: 10px;
   margin: 20px;
   overflow: hidden;
@@ -59,7 +61,7 @@
     min-height: 15%;
     text-align: center;
     font-size: 25px;
-    color: #f7768d;
+    color: $secondary-text-color;
     background-color: rgba(0, 0, 0, 0.685);
     padding: 5px;
   }
@@ -68,13 +70,13 @@
     height: 0%;
     text-align: center;
     border: none;
-    background-color: rgb(192, 2, 2);
-    color: rgb(253, 238, 209);
+    background-color: #c00202;
+    color: $main-text-color;
     font-size: 17px;
     transition-duration: 0.3s;
 
     &:hover {
-      background-color: #f7768d;
+      background-color: $first-gradient-color;
     }
   }
 }

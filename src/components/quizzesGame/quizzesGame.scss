@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .quizz-game {
   display: flex;
   flex-direction: column;
@@ -7,7 +9,7 @@
   padding: 5%;
 
   & span {
-    color: #f7768d;
+    color: $secondary-text-color;
   }
 
   &__category {
