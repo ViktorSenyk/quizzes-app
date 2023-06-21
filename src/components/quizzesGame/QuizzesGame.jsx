@@ -12,7 +12,6 @@ function QuizzesGame({ selectedQuizzData, setCurrentGameResult, setStatisticData
   const navigator = useNavigate();
   const startTime = moment();
 
-  
   useEffect(() => {
     const timerId = setInterval(() => {
       const currentTime = moment();

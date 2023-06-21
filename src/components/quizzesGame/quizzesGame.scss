@@ -52,3 +52,28 @@
     }
   }
 }
+
+@media (max-width: 700px) {
+  .quizz-game {
+    justify-content: space-around;
+    align-items: center;
+
+    &__category {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    &__question {
+      min-height: 162px;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    &__btn {
+      width: 130px;
+      height: 86px;
+      background-size: contain;
+    }
+  }
+}

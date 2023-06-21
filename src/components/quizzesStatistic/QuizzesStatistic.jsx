@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './quizzesStatistic.scss';
 
@@ -26,6 +27,7 @@ function QuizzesStatistic({ statisticData }) {
           ))}
         </ul>
       )}
+      <Link to='/' className="statistic__btn">Back to List</Link>
     </section>
   );
 }
